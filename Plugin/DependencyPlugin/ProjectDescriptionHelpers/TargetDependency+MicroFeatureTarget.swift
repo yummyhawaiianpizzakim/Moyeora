@@ -22,6 +22,26 @@ public extension TargetDependency {
         )
     }
     
+    static func useCase(
+        target: ModulePaths.UseCase,
+        type: MicroTargetType = .sources
+    ) -> TargetDependency {
+        .project(
+            target: target.targetName(type: type),
+            path: .relativeToUseCase(target.rawValue)
+        )
+    }
+    
+    static func entity(
+        target: ModulePaths.Entity,
+        type: MicroTargetType = .sources
+    ) -> TargetDependency {
+        .project(
+            target: target.targetName(type: type),
+            path: .relativeToEntity(target.rawValue)
+        )
+    }
+    
     static func data(
         target: ModulePaths.Data,
         type: MicroTargetType = .sources
@@ -29,6 +49,26 @@ public extension TargetDependency {
         .project(
             target: target.targetName(type: type),
             path: .relativeToData(target.rawValue)
+        )
+    }
+    
+    static func repository(
+        target: ModulePaths.Repository,
+        type: MicroTargetType = .sources
+    ) -> TargetDependency {
+        .project(
+            target: target.targetName(type: type),
+            path: .relativeToRepository(target.rawValue)
+        )
+    }
+    
+    static func dto(
+        target: ModulePaths.DTO,
+        type: MicroTargetType = .sources
+    ) -> TargetDependency {
+        .project(
+            target: target.targetName(type: type),
+            path: .relativeToDTO(target.rawValue)
         )
     }
 

@@ -10,8 +10,20 @@ public extension ProjectDescription.Path {
     static func relativeToDomain(_ path: String) -> Self {
         return .relativeToRoot("Projects/Domain/\(path)")
     }
+    static func relativeToUseCase(_ path: String) -> Self {
+        return .relativeToRoot("Projects/Domain/UseCases/\(path)")
+    }
+    static func relativeToEntity(_ path: String) -> Self {
+        return .relativeToRoot("Projects/Domain/Entity/\(path)")
+    }
     static func relativeToData(_ path: String) -> Self {
+        return .relativeToRoot("Projects/Data/\(path)")
+    }
+    static func relativeToRepository(_ path: String) -> Self {
         return .relativeToRoot("Projects/Data/Repositories/\(path)")
+    }
+    static func relativeToDTO(_ path: String) -> Self {
+        return .relativeToRoot("Projects/Data/DTO/\(path)")
     }
     static func relativeToCore(_ path: String) -> Self {
         return .relativeToRoot("Projects/Core/\(path)")
@@ -34,8 +46,20 @@ public extension TargetDependency {
     static func domain(name: String) -> Self {
         return .project(target: name, path: .relativeToDomain(name))
     }
+    static func useCase(name: String) -> Self {
+        return .project(target: name, path: .relativeToUseCase(name))
+    }
+    static func entity(name: String) -> Self {
+        return .project(target: name, path: .relativeToEntity(name))
+    }
     static func data(name: String) -> Self {
         return .project(target: name, path: .relativeToData(name))
+    }
+    static func repository(name: String) -> Self {
+        return .project(target: name, path: .relativeToRepository(name))
+    }
+    static func dto(name: String) -> Self {
+        return .project(target: name, path: .relativeToDTO(name))
     }
     static func core(name: String) -> Self {
         return .project(target: name, path: .relativeToCore(name))
