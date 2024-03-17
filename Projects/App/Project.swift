@@ -28,7 +28,9 @@ let targets: [Target] = [
         scripts: scripts,
         dependencies: [
             .feature(target: .BaseFeature),
-            .data(target: .AuthData)
+            .domain(target: .BaseDomain),
+            .useCase(target: .AuthUseCase)
+            
         ],
         settings: .settings(base: env.baseSetting)
     )
