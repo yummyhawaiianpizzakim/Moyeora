@@ -104,3 +104,12 @@ Derived/
 *.xcworkspace
 *.xcodeproj
 master.key
+
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
