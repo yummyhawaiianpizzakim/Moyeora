@@ -25,5 +25,7 @@ public extension UIImage {
         public static let userMinus = DesignSystemAsset.Icons.userMinus.image
         public static let userX = DesignSystemAsset.Icons.userX.image
         public static let user = DesignSystemAsset.Icons.user.image
+        public static let plus = DesignSystemAsset.Icons.plus.image
+        public static let x = DesignSystemAsset.Icons.x.image
     }
 }
