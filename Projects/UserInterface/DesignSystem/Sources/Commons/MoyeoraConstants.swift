@@ -31,6 +31,8 @@ public extension MoyeoraConstants {
     static let iconButtonHeightMiddle: CGFloat = 28
     static let iconButtonHeightSmall: CGFloat = 24
     
+    static let textFieldHeight: CGFloat = 48
+    
     static let navigationBarHeight: CGFloat = 40
     static let navigationBarButtonWidth: CGFloat = 40
     
