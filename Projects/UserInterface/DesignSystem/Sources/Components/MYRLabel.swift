@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class MoyeoraLabel: UILabel {
+public final class MYRLabel: UILabel {
     public var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
     override public var intrinsicContentSize: CGSize {
@@ -21,8 +21,8 @@ public final class MoyeoraLabel: UILabel {
 
     public init(
         _ title: String = "",
-        textColor: UIColor.MoyeoraColorSystem = .neutral(.balck),
-        font: UIFont.MoyeoraFontSystem = .subtitle2
+        textColor: UIColor.MYRColorSystem = .neutral(.balck),
+        font: UIFont.MYRFontSystem = .subtitle2
     ) {
         super.init(frame: .zero)
         self.text = title
@@ -35,7 +35,7 @@ public final class MoyeoraLabel: UILabel {
         super.drawText(in: rect.inset(by: padding))
     }
     
-    private func setupAttributes(title: String, font: UIFont.MoyeoraFontSystem, color: UIColor) {
+    private func setupAttributes(title: String, font: UIFont.MYRFontSystem, color: UIColor) {
         let attributedString = NSMutableAttributedString(string: title)
         let range = (title as NSString).range(of: title)
         

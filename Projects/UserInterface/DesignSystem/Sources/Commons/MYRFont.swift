@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol MoyeoraFontable {
+protocol MYRFontable {
     var font: UIFont { get }
 }
 
 public extension UIFont {
-    enum MoyeoraFontSystem: MoyeoraFontable {
+    enum MYRFontSystem: MYRFontable {
         case h1
         case h2
         case subtitle1
@@ -26,12 +26,12 @@ public extension UIFont {
         case caption
     }
 
-    static func moyeora(_ style: MoyeoraFontSystem) -> UIFont {
+    static func moyeora(_ style: MYRFontSystem) -> UIFont {
         return style.font
     }
 }
 
-public extension UIFont.MoyeoraFontSystem {
+public extension UIFont.MYRFontSystem {
     var font: UIFont {
         switch self {
         case .h1:

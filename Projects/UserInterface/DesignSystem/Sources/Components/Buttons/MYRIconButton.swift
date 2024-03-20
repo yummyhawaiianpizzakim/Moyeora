@@ -7,10 +7,10 @@
 //
 import UIKit
 
-public final class MoyeoraIconButton: UIButton {
+public final class MYRIconButton: UIButton {
     public init(image: UIImage?,
-                backgroundColor: UIColor.MoyeoraColorSystem = .primary(.primary2),
-                cornerRadius: CGFloat = MoyeoraConstants.cornerRadiusSmall
+                backgroundColor: UIColor.MYRColorSystem = .primary(.primary2),
+                cornerRadius: CGFloat = MYRConstants.cornerRadiusSmall
     ) {
         super.init(frame: .zero)
         self.setImage(image, for: .normal)

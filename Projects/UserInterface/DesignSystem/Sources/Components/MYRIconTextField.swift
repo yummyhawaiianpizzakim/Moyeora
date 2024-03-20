@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-public final class MoyeoraIconTextField: UITextField {
+public final class MYRIconTextField: UITextField {
     override public var placeholder: String? {
         didSet { setNeedsDisplay() }
     }
@@ -22,13 +22,13 @@ public final class MoyeoraIconTextField: UITextField {
         iconView.frame.width
     }
     
-    private let iconView: MoyeoraIconView
+    private let iconView: MYRIconView
     
     public init(
         placeholder: String? = "",
         icon: UIImage
     ) {
-        let moyeoraIconView = MoyeoraIconView(size: .big, image: icon)
+        let moyeoraIconView = MYRIconView(size: .big, image: icon)
         self.iconView = moyeoraIconView
         super.init(frame: .zero)
         self.configureAttributes()
@@ -83,14 +83,14 @@ public final class MoyeoraIconTextField: UITextField {
     }
 }
 
-private extension MoyeoraIconTextField {
+private extension MYRIconTextField {
     func configureAttributes() {
         self.backgroundColor = .moyeora(.neutral(.white))
         self.font = .moyeora(.subtitle3)
         self.tintColor = .moyeora(.neutral(.balck))
         self.clearButtonMode = .whileEditing
         self.clipsToBounds = true
-        self.layer.cornerRadius = MoyeoraConstants.cornerRadiusSmall
+        self.layer.cornerRadius = MYRConstants.cornerRadiusSmall
         self.isEnabled = true
         self.textColor = .moyeora(.neutral(.balck))
         self.layer.borderWidth = 1
@@ -100,7 +100,7 @@ private extension MoyeoraIconTextField {
     func configureUI() {
         self.addSubview(self.iconView)
         self.iconView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(MoyeoraConstants.leadingMarginBig)
+            make.leading.equalToSuperview().offset(MYRConstants.leadingMarginBig)
             make.centerY.equalToSuperview()
         }
     }
@@ -122,15 +122,15 @@ private extension MoyeoraIconTextField {
         UIEdgeInsets(
             top: 0,
             left:
-                MoyeoraConstants.leadingMarginBig
+                MYRConstants.leadingMarginBig
             + self.iconViweWidth
-            + MoyeoraConstants.contentSpacing,
+            + MYRConstants.contentSpacing,
             
             bottom: 0,
             right:
-                -(MoyeoraConstants.traillingMarginBig)
+                -(MYRConstants.traillingMarginBig)
             + self.clearButtonWidth
-            + MoyeoraConstants.contentSpacing
+            + MYRConstants.contentSpacing
         )
     }
 }

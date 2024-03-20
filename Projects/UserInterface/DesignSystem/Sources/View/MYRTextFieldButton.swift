@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-public final class MoyeoraTextFieldButton: UIButton {
+public final class MYRTextFieldButton: UIButton {
     
     private let innerView: UIView = {
         let view = UIView()
@@ -26,11 +26,11 @@ public final class MoyeoraTextFieldButton: UIButton {
         return stackView
     }()
     
-    private var iconView = MoyeoraIconView()
+    private var iconView = MYRIconView()
     
     private var label = UITextField()
     
-    private let chevronIconView = MoyeoraIconView(size: .big, image: .Moyeora.chevronRight)
+    private let chevronIconView = MYRIconView(size: .big, image: .Moyeora.chevronRight)
     
     public init(text: String, icon: UIImage) {
         super.init(frame: .zero)
@@ -44,40 +44,34 @@ public final class MoyeoraTextFieldButton: UIButton {
     
 }
 
-public extension MoyeoraTextFieldButton {
+public extension MYRTextFieldButton {
     func setText(text: String) {
         self.label.text = text
     }
 }
 
-private extension MoyeoraTextFieldButton {
+private extension MYRTextFieldButton {
     func configureAttributes(text: String, icon: UIImage) {
         self.isUserInteractionEnabled = true
-        self.layer.cornerRadius = MoyeoraConstants.cornerRadiusSmall
+        self.layer.cornerRadius = MYRConstants.cornerRadiusSmall
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.moyeora(.neutral(.balck)).cgColor
         self.label.isEnabled = false
         self.label.placeholder = text
-        let iconView = MoyeoraIconView(size: .big, image: icon)
+        let iconView = MYRIconView(size: .big, image: icon)
         self.iconView = iconView
     }
     
     func configureUI() {
-//        self.addSubview(self.innerView)
-//        self.innerView.addSubview(self.stackView)
         self.addSubview(self.stackView)
         [self.iconView, self.label, self.chevronIconView].forEach { view in
             self.stackView.addArrangedSubview(view)
         }
         
-//        self.innerView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
-        
         self.stackView.snp.makeConstraints { make in
             
-            make.leading.equalToSuperview().offset(MoyeoraConstants.leadingMarginBig)
-            make.trailing.equalToSuperview().offset(MoyeoraConstants.traillingMarginSmall)
+            make.leading.equalToSuperview().offset(MYRConstants.leadingMarginBig)
+            make.trailing.equalToSuperview().offset(MYRConstants.traillingMarginSmall)
             make.centerY.equalToSuperview()
         }
     }

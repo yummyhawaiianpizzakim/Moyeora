@@ -8,13 +8,13 @@
 
 import UIKit
 
-public final class MoyeoraTextButton: UIButton {
+public final class MYRTextButton: UIButton {
     public init(
         _ text: String = "",
-        textColor: UIColor.MoyeoraColorSystem = .neutral(.balck),
-        font: UIFont.MoyeoraFontSystem = .subtitle2,
-        backgroundColor: UIColor.MoyeoraColorSystem = .primary(.primary2),
-        cornerRadius: CGFloat = MoyeoraConstants.cornerRadiusMedium
+        textColor: UIColor.MYRColorSystem = .neutral(.balck),
+        font: UIFont.MYRFontSystem = .subtitle2,
+        backgroundColor: UIColor.MYRColorSystem = .primary(.primary2),
+        cornerRadius: CGFloat = MYRConstants.cornerRadiusMedium
     ) {
         super.init(frame: .zero)
         self.setTitle(text, for: .normal)

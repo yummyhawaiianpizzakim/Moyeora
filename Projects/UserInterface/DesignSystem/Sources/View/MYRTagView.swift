@@ -9,8 +9,9 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
 
-public final class MoyeoraTagView: UIView {
+public final class MYRTagView: UIView {
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -24,7 +25,7 @@ public final class MoyeoraTagView: UIView {
     
     private var userLabel = UILabel()
     
-    private var xButton = MoyeoraIconButton(image: .Moyeora.x)
+    private var xButton = MYRIconButton(image: .Moyeora.x)
     
     public init(name: String) {
         super.init(frame: .zero)
@@ -35,17 +36,22 @@ public final class MoyeoraTagView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-public extension MoyeoraTagView {
+    
     
 }
 
-private extension MoyeoraTagView {
+public extension MYRTagView {
+    var xButtonDidTap: Observable<Void> {
+        self.xButton.rx.tap
+            .asObservable()
+    }
+}
+
+private extension MYRTagView {
     func configureAttributes(name: String) {
-        self.layer.cornerRadius = MoyeoraConstants.cornerRadiusMedium
+        self.layer.cornerRadius = MYRConstants.cornerRadiusMedium
         self.backgroundColor = .moyeora(.primary(.primary2))
-        self.userLabel = MoyeoraLabel(name, textColor: .neutral(.balck), font: .body3)
+        self.userLabel = MYRLabel(name, textColor: .neutral(.balck), font: .body3)
     }
     
     func configureUI() {

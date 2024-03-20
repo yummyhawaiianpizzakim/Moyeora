@@ -8,9 +8,9 @@
 
 import UIKit
 
-public enum MoyeoraConstants { }
+public enum MYRConstants { }
 
-public extension MoyeoraConstants {
+public extension MYRConstants {
     static let leadingOffset: CGFloat = 24
     static let traillingOffset: CGFloat = -leadingOffset
     
