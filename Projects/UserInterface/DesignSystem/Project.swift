@@ -16,7 +16,8 @@ let project = Project.module(
                     .SPM.RxCocoa,
                     .SPM.RxRelay,
                     .SPM.RxGesture,
-                    .SPM.Kingfisher
+                    .SPM.Kingfisher,
+                    .shared(target: .FoundationUtilities)
                 ]
             )
         ),

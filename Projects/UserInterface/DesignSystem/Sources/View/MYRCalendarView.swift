@@ -11,6 +11,7 @@ import RxRelay
 import RxCocoa
 import SnapKit
 import RxSwift
+import FoundationUtilities
 
 public final class MYRCalendarView: UIView {
     public enum Feature {
@@ -30,11 +31,8 @@ public final class MYRCalendarView: UIView {
         view.wantsDateDecorations = true
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         view.selectionBehavior = dateSelection
-        
         dateSelection.selectedDate = self.createDateComponents()
         dateSelection.selectedDate?.timeZone = TimeZone.init(identifier: "Asia/Seoul")
-        
-        print("dateSelection.selectedDate?:::\(dateSelection.selectedDate)")
         return view
     }()
     
@@ -154,20 +152,14 @@ extension MYRCalendarView: UICalendarViewDelegate, UICalendarSelectionSingleDate
         return dotView
     }
     
-    private func createDateComponents() -> DateComponents {
+    private func createDateComponents() -> DateComponents? {
         let today = Date()
         var calendar = Calendar.autoupdatingCurrent
-        calendar.timeZone = TimeZone.init(identifier: "Asia/Seoul")!
+        guard let timeZone = TimeZone.init(identifier: "Asia/Seoul")
+        else { return nil }
+        calendar.timeZone = timeZone
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .timeZone], from: today)
         return components
     }
 }
 
-extension Date {
-    func localizedDate() -> Date {
-        let timezone = TimeZone.autoupdatingCurrent
-        let secondsFromGMT = timezone.secondsFromGMT(for: self)
-        let localizedDate = self.addingTimeInterval(TimeInterval(secondsFromGMT))
-        return localizedDate
-    }
-}
