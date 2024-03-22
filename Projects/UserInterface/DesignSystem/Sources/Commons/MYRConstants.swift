@@ -50,4 +50,6 @@ public extension MYRConstants {
     
     static let imageWidthChatDetail: CGFloat = 34
     static let imageHegihtChatDetail: CGFloat = imageWidthChatDetail
+    
+    static let notificationTVCHeight: CGFloat = 55
 }
