@@ -88,7 +88,6 @@ extension MYRCalendarView: UICalendarViewDelegate, UICalendarSelectionSingleDate
         guard let selectionDate = selection.selectedDate,
               let date = selectionDate.date?.localizedDate()
         else { return }
-        
         self.selectedDate.accept(date)
     }
     
