@@ -10,7 +10,12 @@ import UIKit
 
 public final class MYRLabel: UILabel {
     public var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
+    
+    private var myrText: String
+    private var myrFont: UIFont.MYRFontSystem
+    private var myrTextColor: UIColor.MYRColorSystem
+    
+    
     override public var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.height += padding.top + padding.bottom
@@ -18,42 +23,42 @@ public final class MYRLabel: UILabel {
         
         return contentSize
     }
-
+    
     public init(
         _ title: String = "",
         textColor: UIColor.MYRColorSystem = .neutral(.balck),
         font: UIFont.MYRFontSystem = .subtitle2
     ) {
+        self.myrText = title
+        self.myrFont = font
+        self.myrTextColor = textColor
         super.init(frame: .zero)
-        self.text = title
-        self.font = .moyeora(font)
-        self.textColor = .moyeora(textColor)
-        self.setupAttributes(title: title, font: font, color: .moyeora(textColor))
+        self.setupAttributes()
     }
 
     override public func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: padding))
     }
     
-    private func setupAttributes(title: String, font: UIFont.MYRFontSystem, color: UIColor) {
-        let attributedString = NSMutableAttributedString(string: title)
-        let range = (title as NSString).range(of: title)
+    private func setupAttributes() {
+        let attributedString = NSMutableAttributedString(string: self.myrText)
+        let range = (self.myrText as NSString).range(of: self.myrText)
         
         attributedString.addAttribute(
             .font,
-            value: font.font,
+            value: self.myrFont.font,
             range: range
         )
         
         attributedString.addAttribute(
             .foregroundColor,
-            value: color,
+            value: UIColor.moyeora(self.myrTextColor),
             range: range
         )
         
         attributedString.addAttribute(
             .kern,
-            value: font.letterSpacing,
+            value: self.myrFont.letterSpacing,
             range: range
         )
         
@@ -72,5 +77,12 @@ public final class MYRLabel: UILabel {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+public extension MYRLabel {
+    func setText(with text: String) {
+        self.myrText = text
+        self.setupAttributes()
     }
 }
