@@ -73,6 +73,15 @@ private extension MYRIconView.IconSize {
 public extension MYRIconView {
     func bindImage(urlString: String) {
         let url = URL(string: urlString)
-        self.kf.setImage(with: url)
+        self.kf.setImage(with: url) { [weak self] result in
+            switch result {
+            case .success(_):
+                return
+            case .failure(_):
+                self?.backgroundColor = .moyeora(.neutral(.gray5))
+                self?.image = UIImage.Moyeora.user
+                return
+            }
+        }
     }
 }
