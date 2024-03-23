@@ -19,8 +19,8 @@ public final class MYRTimeCell: UICollectionViewCell {
         }
     }
     
-    public init() {
-        super.init(frame: .zero)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         self.configureAttributes()
         self.configureUI()
     }
