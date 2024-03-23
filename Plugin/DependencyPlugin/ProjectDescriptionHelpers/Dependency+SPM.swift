@@ -15,7 +15,6 @@ public extension TargetDependency.SPM {
     static let FirebaseFirestore = TargetDependency.external(name: "FirebaseFirestore")
     static let FirebaseFirestoreSwift = TargetDependency.external(name: "FirebaseFirestoreSwift")
     static let FirebaseStorage = TargetDependency.external(name: "FirebaseStorage")
-    
 }
 
 public extension Package {

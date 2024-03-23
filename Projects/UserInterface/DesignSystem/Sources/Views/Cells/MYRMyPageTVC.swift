@@ -26,16 +26,15 @@ public final class MYRMyPageTVC: UITableViewCell {
     
     private lazy var leftIcon = MYRIconView()
     
-    private lazy var titleLabel = MYRLabel("", textColor: .neutral(.balck), font: .body1)
+    private lazy var titleLabel = MYRLabel("")
     
-    private var contentLabel = MYRLabel("")
+    private lazy var contentLabel = MYRLabel("")
     
     private lazy var rightIcon = MYRIconView()
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureAttributes()
-//        self.configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -46,28 +45,6 @@ public final class MYRMyPageTVC: UITableViewCell {
 private extension MYRMyPageTVC {
     func configureAttributes() {
         self.selectionStyle = .none
-    }
-    
-    func configureUI() {
-        [self.leftIcon, self.titleLabel,
-         self.rightIcon].forEach { view in
-            self.contentView.addSubview(view)
-        }
-        
-        self.leftIcon.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Metric.leadingMargin)
-            make.centerY.equalToSuperview()
-        }
-        
-        self.titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(self.leftIcon.snp.trailing).offset(Metric.padding)
-            make.centerY.equalToSuperview()
-        }
-        
-        self.rightIcon.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(Metric.trailingMargin)
-            make.centerY.equalToSuperview()
-        }
     }
     
     func configureInitUI(title: String? = nil, left: UIImage? = nil, right: UIImage? = nil, content: String? = nil) {
@@ -102,6 +79,7 @@ private extension MYRMyPageTVC {
             make.centerY.equalToSuperview()
         }
     }
+    
     func configureUIWhenLeftRightIcon(_ title: String, _ left: UIImage, _ right: UIImage) {
         self.configureInitUI(title: title, left: left, right: right)
         
@@ -124,6 +102,7 @@ private extension MYRMyPageTVC {
             make.centerY.equalToSuperview()
         }
     }
+    
     func configureUIWhenLeftIcon(_ title: String, _ left: UIImage) {
         self.configureInitUI(title: title, left: left)
         
@@ -144,11 +123,6 @@ private extension MYRMyPageTVC {
 }
 
 public extension MYRMyPageTVC {
-    func bindCell(title: String, leftImage: UIImage, rightImage: UIImage) {
-        self.titleLabel.setText(with: title)
-        self.leftIcon.image = leftImage
-        self.rightIcon.image = rightImage
-    }
     func setCell(cellType: CellType) {
         switch cellType {
         case .leftRightIcon(title: let title, left: let left, right: let right):
