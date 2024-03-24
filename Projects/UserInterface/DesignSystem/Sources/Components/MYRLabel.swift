@@ -13,7 +13,7 @@ public final class MYRLabel: UILabel {
     
     private var myrText: String
     private var myrFont: UIFont.MYRFontSystem
-    private var myrTextColor: UIColor.MYRColorSystem
+    public var myrTextColor: UIColor.MYRColorSystem
     
     
     override public var intrinsicContentSize: CGSize {
