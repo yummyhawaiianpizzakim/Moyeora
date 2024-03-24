@@ -8,35 +8,35 @@
 
 import UIKit
 
-protocol MoyeoraColorable {
+protocol MYRColorable {
     var color: UIColor { get }
 }
 
 public extension UIColor {
-    enum MoyeoraColorSystem {
+    enum MYRColorSystem {
         case primary(Primary)
         case neutral(Neutral)
         case system(System)
     }
 
-    static func moyeora(_ style: MoyeoraColorSystem) -> UIColor {
+    static func moyeora(_ style: MYRColorSystem) -> UIColor {
         switch style {
-        case let .primary(colorable as MoyeoraColorable),
-            let .neutral(colorable as MoyeoraColorable),
-            let .system(colorable as MoyeoraColorable):
+        case let .primary(colorable as MYRColorable),
+            let .neutral(colorable as MYRColorable),
+            let .system(colorable as MYRColorable):
             
             return colorable.color
         }
     }
 }
 
-public extension UIColor.MoyeoraColorSystem {
-    enum Primary: MoyeoraColorable {
+public extension UIColor.MYRColorSystem {
+    enum Primary: MYRColorable {
         case primary1
         case primary2
     }
     
-    enum Neutral: MoyeoraColorable {
+    enum Neutral: MYRColorable {
         case balck
         case gray1
         case gray2
@@ -46,13 +46,13 @@ public extension UIColor.MoyeoraColorSystem {
         case white
     }
     
-    enum System: MoyeoraColorable {
+    enum System: MYRColorable {
         case error
         case success
     }
 }
 
-public extension UIColor.MoyeoraColorSystem.Primary {
+public extension UIColor.MYRColorSystem.Primary {
     var color: UIColor {
         switch self {
         case .primary1: return DesignSystemAsset.Primary.primay1.color
@@ -61,7 +61,7 @@ public extension UIColor.MoyeoraColorSystem.Primary {
     }
 }
 
-public extension UIColor.MoyeoraColorSystem.Neutral {
+public extension UIColor.MYRColorSystem.Neutral {
     var color: UIColor {
         switch self {
         case .gray1: return DesignSystemAsset.Neutral.gray1.color
@@ -75,7 +75,7 @@ public extension UIColor.MoyeoraColorSystem.Neutral {
     }
 }
 
-public extension UIColor.MoyeoraColorSystem.System {
+public extension UIColor.MYRColorSystem.System {
     var color: UIColor {
         switch self {
         case .error: return DesignSystemAsset.System.error.color

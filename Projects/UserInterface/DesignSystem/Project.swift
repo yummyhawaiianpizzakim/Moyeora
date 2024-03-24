@@ -11,7 +11,13 @@ let project = Project.module(
             spec: .init(
                 resources: ["Resources/**"],
                 dependencies: [
-                    .SPM.SnapKit
+                    .SPM.SnapKit,
+                    .SPM.RxSwift,
+                    .SPM.RxCocoa,
+                    .SPM.RxRelay,
+                    .SPM.RxGesture,
+                    .SPM.Kingfisher,
+                    .shared(target: .FoundationUtilities)
                 ]
             )
         ),

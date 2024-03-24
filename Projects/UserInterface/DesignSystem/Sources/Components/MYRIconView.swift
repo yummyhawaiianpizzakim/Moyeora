@@ -7,21 +7,25 @@
 //
 
 import UIKit
+import Kingfisher
 
-public final class MoyeoraIconView: UIImageView {
+public final class MYRIconView: UIImageView {
     public enum IconSize: Equatable {
         case big
         case small
         case custom(CGSize)
     }
+    
+    private var isCircle: Bool
 
     @Invalidating(.layout) public var size: IconSize = .big
 
-    public init(size: IconSize = .big, image: UIImage? = nil) {
+    public init(size: IconSize = .big, image: UIImage? = nil, isCircle: Bool = false) {
         self.size = size
+        self.isCircle = isCircle
         super.init(frame: .zero)
         self.image = image
-        setIconSize()
+        self.confiureAttributes()
     }
 
     @available(*, unavailable)
@@ -31,18 +35,24 @@ public final class MoyeoraIconView: UIImageView {
 
     override public func layoutSubviews() {
         super.layoutSubviews()
-        setIconSize()
+        self.confiureAttributes()
     }
 }
 
-private extension MoyeoraIconView {
-    func setIconSize() {
+private extension MYRIconView {
+    func confiureAttributes() {
+        self.clipsToBounds = true
         self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
         self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        
+        if isCircle {
+            let radius = self.frame.height / 2
+            self.layer.cornerRadius = radius
+        }
     }
 }
 
-private extension MoyeoraIconView.IconSize {
+private extension MYRIconView.IconSize {
     var width: CGFloat {
         switch self {
         case .big: return 28
@@ -56,6 +66,22 @@ private extension MoyeoraIconView.IconSize {
         case .big: return 28
         case .small: return 24
         case let .custom(size): return size.height
+        }
+    }
+}
+
+public extension MYRIconView {
+    func bindImage(urlString: String) {
+        let url = URL(string: urlString)
+        self.kf.setImage(with: url) { [weak self] result in
+            switch result {
+            case .success(_):
+                return
+            case .failure(_):
+                self?.backgroundColor = .moyeora(.neutral(.gray5))
+                self?.image = UIImage.Moyeora.user
+                return
+            }
         }
     }
 }
