@@ -3,11 +3,9 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project.module(
-    name: ModulePaths.Shared.Entity.rawValue,
+    name: ModulePaths.Entity.Entity.rawValue,
     targets: [
-        .interface(module: .shared(.Entity)),
-        .implements(module: .shared(.Entity), dependencies: [
-            .shared(target: .Entity, type: .interface)
-        ])
+        .interface(module: .entity(.Entity)),
+        .implements(module: .entity(.Entity),product: .framework)
     ]
 )

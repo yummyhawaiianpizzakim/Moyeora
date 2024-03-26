@@ -68,7 +68,6 @@ public extension ModulePaths {
 public extension ModulePaths {
     enum Entity: String, MicroTargetPathConvertable {
         case Entity
-        case BaseEntity
     }
 }
 
@@ -95,7 +94,6 @@ public extension ModulePaths {
 public extension ModulePaths {
     enum DTO: String, MicroTargetPathConvertable {
         case DTO
-        case BaseEntity
     }
 }
 

@@ -29,8 +29,8 @@ let targets: [Target] = [
         dependencies: [
             .feature(target: .BaseFeature),
             .domain(target: .BaseDomain),
-            .useCase(target: .AuthUseCase)
-            
+            .useCase(target: .AuthUseCase),
+            .entity(target: .Entity)
         ],
         settings: .settings(base: env.baseSetting)
     )
