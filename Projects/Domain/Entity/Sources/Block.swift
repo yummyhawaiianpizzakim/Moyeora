@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-struct Block {
+public struct Block {
     let blockId: String
     let blockedUserId: String
     let userId: String

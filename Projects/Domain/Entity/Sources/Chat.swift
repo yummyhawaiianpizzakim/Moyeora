@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Chat: Hashable {
+public struct Chat: Hashable {
      enum SenderType {
          case mine
          case other

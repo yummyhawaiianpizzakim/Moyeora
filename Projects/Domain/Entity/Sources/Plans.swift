@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Plans: Hashable {
+public struct Plans: Hashable {
     enum Status {
         case active
         case inactive
@@ -23,5 +23,6 @@ struct Plans: Hashable {
     let longitude: Double
     let makingUserID: String
     let usersID: [String]
+    let chatRoomID: String
     var status: Status
 }

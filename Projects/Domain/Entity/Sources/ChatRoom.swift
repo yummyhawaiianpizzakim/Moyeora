@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ChatRoom: Hashable {
+public struct ChatRoom: Hashable {
     let id: String
     let userID: String
     let plansID: String
